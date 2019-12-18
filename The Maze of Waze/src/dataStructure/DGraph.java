@@ -1,13 +1,20 @@
 package dataStructure;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
 
-public class DGraph implements graph{
+public class DGraph implements graph
+{
+	HashMap<Integer ,GNode_v1 > Verticies;
+	HashMap<Integer , GNode_v1> Edges;
 
 	@Override
-	public node_data getNode(int key) {
-		// TODO Auto-generated method stub
-		return null;
+	public node_data getNode(int key) 
+	{
+		node_data node = Verticies.get(key);
+		return node;
 	}
 
 	@Override
@@ -17,9 +24,9 @@ public class DGraph implements graph{
 	}
 
 	@Override
-	public void addNode(node_data n) {
-		// TODO Auto-generated method stub
-		
+	public void addNode(node_data n) 
+	{
+		Verticies.put(n.getKey(), (GNode_v1) n);
 	}
 
 	@Override
@@ -29,9 +36,10 @@ public class DGraph implements graph{
 	}
 
 	@Override
-	public Collection<node_data> getV() {
-		// TODO Auto-generated method stub
-		return null;
+	public Collection<node_data> getV() 
+	{
+		Collection<node_data> values = (Collection<node_data>) Verticies.values();
+		return values;
 	}
 
 	@Override
